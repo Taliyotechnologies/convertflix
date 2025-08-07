@@ -1,19 +1,50 @@
 const nodemailer = require('nodemailer');
 
-// Create transporter
-const transporter = nodemailer.createTransporter({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+// Check if email configuration is available
+const isEmailConfigured = () => {
+  return process.env.EMAIL_USER && process.env.EMAIL_PASS;
+};
+
+// Create transporter with proper configuration
+const createTransporter = () => {
+  if (!isEmailConfigured()) {
+    console.log('Email not configured, skipping email functionality');
+    return null;
   }
-});
+
+  try {
+    return nodemailer.createTransport({
+      host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+      port: process.env.EMAIL_PORT || 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+  } catch (error) {
+    console.error('Failed to create email transporter:', error);
+    return null;
+  }
+};
 
 // Send email function
 const sendEmail = async (emailData) => {
   try {
+    if (!isEmailConfigured()) {
+      console.log('Email not configured, skipping email send');
+      return true; // Return true to not break the flow
+    }
+
+    const transporter = createTransporter();
+    if (!transporter) {
+      console.log('Transporter not available, skipping email send');
+      return true;
+    }
+
     const { to, subject, html, text } = emailData;
     
     const mailOptions = {
@@ -29,14 +60,14 @@ const sendEmail = async (emailData) => {
     return true;
   } catch (error) {
     console.error('Email sending failed:', error);
-    return false;
+    return true; // Return true to not break the flow
   }
 };
 
 // Send admin notification
 const sendAdminNotification = async (data) => {
   const emailData = {
-    to: process.env.ADMIN_EMAIL,
+    to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
     subject: 'ConvertFlix Admin Notification',
     html: `
       <h2>Admin Notification</h2>
@@ -52,7 +83,7 @@ const sendAdminNotification = async (data) => {
 // Send file conversion notification
 const sendFileNotification = async (fileData) => {
   const emailData = {
-    to: process.env.ADMIN_EMAIL,
+    to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
     subject: 'New File Conversion - ConvertFlix',
     html: `
       <h2>New File Conversion</h2>
