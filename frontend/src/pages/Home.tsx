@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './Home.css';
 
 const Home: React.FC = () => {
   return (
-    <div className="home">
+    <>
+      <SEO 
+        title="ConvertFlix - File Compression & Conversion Tools"
+        description="Transform your files with lightning-fast compression and conversion. Professional tools for images, videos, PDFs, and audio files. Smart algorithms, unlimited access."
+        keywords="file compression, file conversion, image converter, video converter, PDF tools, audio converter, online file tools, bulk file processing"
+      />
+      <div className="home">
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
@@ -218,6 +225,7 @@ const Home: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

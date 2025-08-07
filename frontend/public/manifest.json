@@ -1,0 +1,27 @@
+{
+  "name": "ConvertFlix - File Compression & Conversion Tools",
+  "short_name": "ConvertFlix",
+  "description": "Transform your files with lightning-fast compression and conversion. Professional tools for images, videos, PDFs, and audio files.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
