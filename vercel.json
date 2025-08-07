@@ -9,12 +9,5 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "redirects": [
-    {
-      "source": "/admin",
-      "destination": "/admin/login",
-      "permanent": false
-    }
   ]
 }
