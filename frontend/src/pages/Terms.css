@@ -1,0 +1,78 @@
+.terms-page {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--bg-primary);
+}
+
+.terms-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.terms-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.terms-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+.terms-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.terms-section {
+  margin-bottom: 3rem;
+}
+
+.terms-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.terms-section p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.terms-section ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.terms-section li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .terms-title {
+    font-size: 2.5rem;
+  }
+  
+  .terms-content {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-page {
+    padding: 1rem 0;
+  }
+  
+  .terms-title {
+    font-size: 2rem;
+  }
+}
