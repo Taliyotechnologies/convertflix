@@ -1,0 +1,13 @@
+{
+  "name": "convertflix",
+  "version": "1.0.0",
+  "description": "ConvertFlix - File conversion platform",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "install-deps": "cd frontend && npm install",
+    "dev": "cd frontend && npm run dev"
+  },
+  "workspaces": [
+    "frontend"
+  ]
+}

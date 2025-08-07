@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/contact/submit`, {
+      const response = await fetch(`${(import.meta as any).env.VITE_API_URL || 'http://localhost:5000/api'}/contact/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
