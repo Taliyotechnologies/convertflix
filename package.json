@@ -4,10 +4,14 @@
   "description": "ConvertFlix - File conversion platform",
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
-    "install-deps": "cd frontend && npm install",
-    "dev": "cd frontend && npm run dev"
+    "install": "cd frontend && npm install",
+    "dev": "cd frontend && npm run dev",
+    "preview": "cd frontend && npm run preview"
   },
   "workspaces": [
     "frontend"
-  ]
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
